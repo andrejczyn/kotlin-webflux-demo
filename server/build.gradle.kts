@@ -5,18 +5,7 @@ plugins {
     kotlin("plugin.spring") version "1.9.24"
 }
 
-group = "com.andrejczyn.kfd"
-version = "0.0.1-SNAPSHOT"
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
-
-repositories {
-    mavenCentral()
-}
+group = "com.andrejczyn.kfd.server"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
@@ -30,12 +19,14 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 kotlin {
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
     }
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
 }
