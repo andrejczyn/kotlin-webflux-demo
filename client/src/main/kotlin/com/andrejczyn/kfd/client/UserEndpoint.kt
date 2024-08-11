@@ -33,14 +33,14 @@ class UserClient {
             .createClient(com.andrejczyn.kwd.server.contract.UserService::class.java)
 
     suspend fun user(userId: UUID): User {
-        return service.user(userId)
-            .let {
-                User(
-                    id = it.id,
-                    firstname = "John",
-                    surname = "Kowalski",
-                    createdAt = Instant.now(),
-                )
-            }
+        val response =
+            service.user(userId)
+
+        return User(
+            id = response.id,
+            firstname = "John",
+            surname = "Kowalski",
+            createdAt = Instant.now(),
+        )
     }
 }

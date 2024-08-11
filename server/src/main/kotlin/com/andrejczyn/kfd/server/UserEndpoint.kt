@@ -10,6 +10,7 @@ import java.util.UUID
 class UserEndpoint : UserService {
     override suspend fun user(
         @PathVariable userId: UUID,
+        waitTime: Long,
     ): UserResponse {
         return UserResponse(id = userId, status = "ACTIVE")
     }
