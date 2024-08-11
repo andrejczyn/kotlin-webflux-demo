@@ -3,3 +3,6 @@ server:
 spring:
   application:
     name: client
+#logging:
+#  level:
+#    reactor.netty: debug
