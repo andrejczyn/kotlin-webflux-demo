@@ -1,1 +1,5 @@
-GET http://localhost:8080/wait?time=1000
+### GET Wait
+GET http://localhost:8081/wait?time=1000
+
+### GET User
+GET http://localhost:8080/users/{{$random.uuid}}
