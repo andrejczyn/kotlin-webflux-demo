@@ -13,12 +13,13 @@ interface UserService {
     suspend fun user(
         @PathVariable userId: UUID,
         @RequestParam waitTime: Long = 1000,
-    ): User
+    ): UserClientResponse
 }
 
-data class User(
+data class UserClientResponse(
     val id: UUID,
     val firstname: String,
     val surname: String,
+    val displayName: String,
     val createdAt: Instant,
 )

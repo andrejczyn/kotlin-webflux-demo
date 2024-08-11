@@ -2,4 +2,4 @@
 GET http://localhost:8081/users/{{$random.uuid}}?waitTime=1000
 
 ### GET User
-GET http://localhost:8080/users/{{$random.uuid}}?waitTime=5000
+GET http://localhost:8080/users/{{$random.uuid}}?waitTime=1000

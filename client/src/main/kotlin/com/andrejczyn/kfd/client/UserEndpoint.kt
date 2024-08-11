@@ -17,7 +17,7 @@ class UserEndpoint(val userClient: UserClient) : UserService {
     override suspend fun user(
         userId: UUID,
         waitTime: Long,
-    ): User {
+    ): UserClientResponse {
         return userClient.user(userId, waitTime)
     }
 }
@@ -35,14 +35,15 @@ class UserClient {
     suspend fun user(
         userId: UUID,
         waitTime: Long,
-    ): User {
+    ): UserClientResponse {
         val response =
             service.user(userId, waitTime)
 
-        return User(
+        return UserClientResponse(
             id = response.id,
-            firstname = "John",
-            surname = "Kowalski",
+            firstname = response.firstname,
+            surname = response.lastname,
+            displayName = "${response.firstname} ${response.lastname}",
             createdAt = Instant.now(),
         )
     }
